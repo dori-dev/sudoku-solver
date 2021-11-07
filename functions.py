@@ -87,6 +87,11 @@ def is_valid(n, x, y) -> bool:
 
 
 def solve():
+    """solve the puzzle with recursive functions!
+
+    Returns:
+        bool: if number positon correct True, and else False
+    """
     position = find_free()
     if not position:
         return True
