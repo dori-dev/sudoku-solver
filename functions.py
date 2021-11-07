@@ -1,23 +1,27 @@
 """Project functions
 """
-from assets import puzzle, characters
+from assets import puzzle, changed, characters, colors
+
+
+def make_colors(color: str, text: str) -> str:
+    return f"{colors[color]}{text}{colors['normal']}"
 
 
 def draw():
     """draw the puzzle
     """
-    print(characters["start"])
+    print(make_colors('border', characters['start']))
     for i in range(9):
         for j in range(9):
             if j % 3 == 0:
-                print("│", end=" ")
+                print(make_colors('border', "│"), end=" ")
             print(puzzle[i][j], end=" ")
 
-        print("│")
+        print(make_colors('border', "│"))
         if i == 8:
-            print(characters["end"])
+            print(make_colors('border', characters['end']))
         elif (i + 1) % 3 == 0:
-            print(characters["mid"])
+            print(make_colors('border', characters['mid']))
 
 
 def find_free():
@@ -56,3 +60,10 @@ def solve():
                 return True
             puzzle[x][y] = 0
     return False
+
+
+def specify_solved_points():
+    for i in range(9):
+        for j in range(9):
+            if puzzle[i][j] == 0:
+                changed[i][j] = 1
