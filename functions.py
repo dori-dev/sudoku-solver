@@ -15,7 +15,11 @@ def draw():
         for j in range(9):
             if j % 3 == 0:
                 print(make_colors('border', "│"), end=" ")
-            print(puzzle[i][j], end=" ")
+
+            if changed[i][j]:
+                print(make_colors('solve_number', puzzle[i][j]), end=" ")
+            else:
+                print(puzzle[i][j], end=" ")
 
         print(make_colors('border', "│"))
         if i == 8:
