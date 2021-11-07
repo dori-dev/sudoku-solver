@@ -60,7 +60,17 @@ def find_free() -> (bool, list):
     return False
 
 
-def is_valid(n, x, y):
+def is_valid(n, x, y) -> bool:
+    """check the point with x & y position and n value is valid to use in puzzle
+
+    Args:
+        n (int): number
+        x (int): x postion
+        y (int): y postion
+
+    Returns:
+        bool: valid or not valid
+    """
     for i in range(9):
         if n in (puzzle[x][i], puzzle[i][y]):
             return False
