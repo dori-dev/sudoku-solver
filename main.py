@@ -1,3 +1,6 @@
+"""Main of project
+"""
+# Local import
 from functions import specify_solved_points, solve, draw
 
 specify_solved_points()

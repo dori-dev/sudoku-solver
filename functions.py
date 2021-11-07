@@ -1,6 +1,7 @@
 """Project functions
 """
-from assets import puzzle, changed
+# Local imports
+from assets import table, changed
 from assets import characters, colors
 
 
@@ -9,7 +10,7 @@ def specify_solved_points():
     """
     for i in range(9):
         for j in range(9):
-            if puzzle[i][j] == 0:
+            if table[i][j] == 0:
                 changed[i][j] = 1
 
 
@@ -27,7 +28,7 @@ def make_colors(color: str, text: str) -> str:
 
 
 def draw():
-    """draw the puzzle in terminal
+    """draw the table in terminal
     """
     print(make_colors('border', characters['start']))
     for i in range(9):
@@ -36,9 +37,9 @@ def draw():
                 print(make_colors('border', "│"), end=" ")
 
             if changed[i][j]:
-                print(make_colors('solve_number', puzzle[i][j]), end=" ")
+                print(make_colors('solve_number', table[i][j]), end=" ")
             else:
-                print(puzzle[i][j], end=" ")
+                print(table[i][j], end=" ")
 
         print(make_colors('border', "│"))
         if i == 8:
@@ -48,20 +49,20 @@ def draw():
 
 
 def find_free() -> (bool, list):
-    """Find the empty point in the puzzle to be solved
+    """Find the empty point in the table to be solved
 
     Returns:
         bool,postion: point postion if have free point, else False
     """
     for i in range(9):
         for j in range(9):
-            if puzzle[i][j] == 0:
+            if table[i][j] == 0:
                 return [i, j]
     return False
 
 
 def is_valid(n, x, y) -> bool:
-    """check the point with x & y position and n value is valid to use in puzzle
+    """check the point with x & y position and n value is valid to use in table
 
     Args:
         n (int): number
@@ -72,7 +73,7 @@ def is_valid(n, x, y) -> bool:
         bool: valid or not valid
     """
     for i in range(9):
-        if n in (puzzle[x][i], puzzle[i][y]):
+        if n in (table[x][i], table[i][y]):
             return False
 
     x_square = (x // 3) * 3
@@ -80,7 +81,7 @@ def is_valid(n, x, y) -> bool:
 
     for i in range(x_square, x_square+3):
         for j in range(y_square, y_square+3):
-            if puzzle[i][j] == n:
+            if table[i][j] == n:
                 return False
     return True
 
@@ -93,8 +94,8 @@ def solve():
     y = position[1]
     for n in range(1, 10):
         if is_valid(n, x, y):
-            puzzle[x][y] = n
+            table[x][y] = n
             if solve():
                 return True
-            puzzle[x][y] = 0
+            table[x][y] = 0
     return False
