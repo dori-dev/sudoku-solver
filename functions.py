@@ -1,6 +1,7 @@
 """Project functions
 """
-from assets import puzzle, changed, characters, colors
+from assets import puzzle, changed
+from assets import characters, colors
 
 
 def make_colors(color: str, text: str) -> str:
