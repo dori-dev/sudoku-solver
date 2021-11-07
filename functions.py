@@ -45,7 +45,7 @@ def draw():
         if i == 8:
             print(make_colors('border', characters['end']))
         elif (i + 1) % 3 == 0:
-            print(make_colors('border', characters['mid']))
+            print(make_colors('border', characters['center']))
 
 
 def find_free() -> (bool, list):
