@@ -1,6 +1,6 @@
 """Project functions
 """
-from assets import puzzle, guess, characters
+from assets import puzzle, characters
 
 
 def draw():
@@ -44,4 +44,15 @@ def is_valid(n, x, y):
 
 
 def solve():
-    pass
+    position = find_free()
+    if not position:
+        return True
+    x = position[0]
+    y = position[1]
+    for n in range(1, 10):
+        if is_valid(n, x, y):
+            puzzle[x][y] = n
+            if solve():
+                return True
+            puzzle[x][y] = 0
+    return False
