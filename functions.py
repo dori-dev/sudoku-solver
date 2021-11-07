@@ -66,8 +66,8 @@ def is_valid(num, x_pos, y_pos) -> bool:
 
     Args:
         num (int): number
-        x_pos (int): x_pos postion
-        y_pos (int): y_pos postion
+        x_pos (int): x postion
+        y_pos (int): y postion
 
     Returns:
         bool: valid or not valid
