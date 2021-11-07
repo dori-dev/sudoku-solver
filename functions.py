@@ -61,27 +61,27 @@ def find_free() -> (bool, list):
     return False
 
 
-def is_valid(n, x, y) -> bool:
-    """check the point with x & y position and n value is valid to use in table
+def is_valid(num, x_pos, y_pos) -> bool:
+    """check the point with x_pos & y_pos position and num value is valid to use in table
 
     Args:
-        n (int): number
-        x (int): x postion
-        y (int): y postion
+        num (int): number
+        x_pos (int): x_pos postion
+        y_pos (int): y_pos postion
 
     Returns:
         bool: valid or not valid
     """
     for i in range(9):
-        if n in (table[x][i], table[i][y]):
+        if num in (table[x_pos][i], table[i][y_pos]):
             return False
 
-    x_square = (x // 3) * 3
-    y_square = (y // 3) * 3
+    x_square = (x_pos // 3) * 3
+    y_square = (y_pos // 3) * 3
 
     for i in range(x_square, x_square+3):
         for j in range(y_square, y_square+3):
-            if table[i][j] == n:
+            if table[i][j] == num:
                 return False
     return True
 
@@ -90,17 +90,17 @@ def solve():
     """solve the puzzle with recursive functions!
 
     Returns:
-        bool: if number positon correct True, and else False
+        bool: if number position correct True, and else False
     """
     position = find_free()
     if not position:
         return True
-    x = position[0]
-    y = position[1]
-    for n in range(1, 10):
-        if is_valid(n, x, y):
-            table[x][y] = n
+    x_pos = position[0]
+    y_pos = position[1]
+    for num in range(1, 10):
+        if is_valid(num, x_pos, y_pos):
+            table[x_pos][y_pos] = num
             if solve():
                 return True
-            table[x][y] = 0
+            table[x_pos][y_pos] = 0
     return False
