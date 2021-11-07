@@ -5,6 +5,8 @@ from assets import characters, colors
 
 
 def specify_solved_points():
+    """Specify the points to be solved
+    """
     for i in range(9):
         for j in range(9):
             if puzzle[i][j] == 0:
