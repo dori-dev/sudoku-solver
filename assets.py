@@ -30,3 +30,9 @@ characters = {
     "mid": "├───────┼───────┼───────┤",
     "end": "└───────┴───────┴───────┘"
 }
+
+colors = {
+    "solve_number_color": "\033[94m",
+    "border_color": "\033[92m",
+    "normal_color": "\033[0m"
+}
