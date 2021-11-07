@@ -4,6 +4,13 @@ from assets import puzzle, changed
 from assets import characters, colors
 
 
+def specify_solved_points():
+    for i in range(9):
+        for j in range(9):
+            if puzzle[i][j] == 0:
+                changed[i][j] = 1
+
+
 def make_colors(color: str, text: str) -> str:
     """Colorizing the text
 
@@ -74,10 +81,3 @@ def solve():
                 return True
             puzzle[x][y] = 0
     return False
-
-
-def specify_solved_points():
-    for i in range(9):
-        for j in range(9):
-            if puzzle[i][j] == 0:
-                changed[i][j] = 1
