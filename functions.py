@@ -22,7 +22,7 @@ def make_colors(color: str, text: str) -> str:
         text (str): text
 
     Returns:
-        str: text with color id in first and normalized color in end
+        str: text with color_id in first and normalized color_id in end
     """
     return f"{colors[color]}{text}{colors['normal']}"
 
@@ -48,7 +48,7 @@ def draw():
             print(make_colors('border', characters['center']))
 
 
-def find_free() -> (bool, list):
+def find_free() -> (bool, tuple):
     """Find the empty point in the table to be solved
 
     Returns:
@@ -57,7 +57,7 @@ def find_free() -> (bool, list):
     for i in range(9):
         for j in range(9):
             if table[i][j] == 0:
-                return [i, j]
+                return (i, j)
     return False
 
 
