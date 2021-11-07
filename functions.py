@@ -27,7 +27,7 @@ def make_colors(color: str, text: str) -> str:
 
 
 def draw():
-    """draw the puzzle
+    """draw the puzzle in terminal
     """
     print(make_colors('border', characters['start']))
     for i in range(9):
@@ -47,7 +47,12 @@ def draw():
             print(make_colors('border', characters['mid']))
 
 
-def find_free():
+def find_free() -> (bool, list):
+    """Find the empty point in the puzzle to be solved
+
+    Returns:
+        bool,postion: point postion if have free point, else False
+    """
     for i in range(9):
         for j in range(9):
             if puzzle[i][j] == 0:
