@@ -1,4 +1,4 @@
-"""assets of project
+"""Project attachments
 """
 
 puzzle = [
