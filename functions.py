@@ -4,6 +4,15 @@ from assets import puzzle, changed, characters, colors
 
 
 def make_colors(color: str, text: str) -> str:
+    """Colorizing the text
+
+    Args:
+        color (str): color name
+        text (str): text
+
+    Returns:
+        str: text with color id in first and normalized color in end
+    """
     return f"{colors[color]}{text}{colors['normal']}"
 
 
