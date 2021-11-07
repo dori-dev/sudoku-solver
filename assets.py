@@ -32,7 +32,7 @@ characters = {
 }
 
 colors = {
-    "solve_number_color": "\033[94m",
-    "border_color": "\033[92m",
-    "normal_color": "\033[0m"
+    "solve_number": "\033[94m",
+    "border": "\033[92m",
+    "normal": "\033[0m"
 }
