@@ -1,25 +1,23 @@
 """Project functions
 """
-from assets import puzzle, guess
-chars = ("|", "--")
+from assets import puzzle, guess, characters
 
 
 def draw():
-    print("┌───────┬───────┬───────┐")
+    """draw the puzzle
+    """
+    print(characters["start"])
     for i in range(9):
         for j in range(9):
             if j % 3 == 0:
-                print("│ ", end="")
-            print(f"{puzzle[i][j]} ", end="")
-        
+                print("│", end=" ")
+            print(puzzle[i][j], end=" ")
+
         print("│")
         if i == 8:
-            print("└───────┴───────┴───────┘")
+            print(characters["end"])
         elif (i + 1) % 3 == 0:
-            print("├───────┼───────┼───────┤")
-
-
-
+            print(characters["mid"])
 
 
 def find_free():
