@@ -1,6 +1,6 @@
 # Sudoku Solver
 
-sudoku solver with recursive functions in pure python!
+Sudoku solver with recursive functions in pure python!
 
 #
 
