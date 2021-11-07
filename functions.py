@@ -21,7 +21,11 @@ def draw():
 
 
 def find_free():
-    pass
+    for i in range(9):
+        for j in range(9):
+            if puzzle[i][j] == 0:
+                return [i, j]
+    return False
 
 
 def is_valid():
